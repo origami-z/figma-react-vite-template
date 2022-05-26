@@ -1,3 +1,5 @@
+import { times150 } from './utils'
+
 figma.showUI(__html__, { themeColors: true, height: 300 });
 
 figma.ui.onmessage = (msg) => {
@@ -6,7 +8,7 @@ figma.ui.onmessage = (msg) => {
 
     for (let i = 0; i < msg.count; i++) {
       const rect = figma.createRectangle();
-      rect.x = i * 150;
+      rect.x = times150(i);
       rect.fills = [{ type: "SOLID", color: { r: 1, g: 0.5, b: 0 } }];
       figma.currentPage.appendChild(rect);
       nodes.push(rect);
