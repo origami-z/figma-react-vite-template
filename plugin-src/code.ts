@@ -1,8 +1,9 @@
+import { PostToFigmaMessage, PostToUIMessage } from '../shared-src/messages';
 import { times150 } from './utils'
 
-figma.showUI(__html__, { themeColors: true, height: 300 });
+figma.showUI(__html__, { themeColors: true, height: 340 });
 
-figma.ui.onmessage = (msg) => {
+figma.ui.onmessage = (msg: PostToFigmaMessage) => {
   if (msg.type === "create-rectangles") {
     const nodes = [];
 
@@ -14,9 +15,15 @@ figma.ui.onmessage = (msg) => {
       nodes.push(rect);
     }
 
+    figma.ui.postMessage({
+      type: "created-nodes-result",
+      success: msg.count > 0
+    } as PostToUIMessage);
+
     figma.currentPage.selection = nodes;
     figma.viewport.scrollAndZoomIntoView(nodes);
   }
-
-  figma.closePlugin();
+  else if (msg.type === 'cancel') {
+    figma.closePlugin();
+  }
 };
