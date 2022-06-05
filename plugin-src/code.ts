@@ -1,5 +1,5 @@
-import { PostToFigmaMessage, PostToUIMessage } from '../shared-src/messages';
-import { times150 } from './utils'
+import { PostToFigmaMessage, PostToUIMessage } from "../shared-src/messages";
+import { times150 } from "./utils";
 
 figma.showUI(__html__, { themeColors: true, height: 340 });
 
@@ -17,13 +17,12 @@ figma.ui.onmessage = (msg: PostToFigmaMessage) => {
 
     figma.ui.postMessage({
       type: "created-nodes-result",
-      success: msg.count > 0
+      success: msg.count > 0,
     } as PostToUIMessage);
 
     figma.currentPage.selection = nodes;
     figma.viewport.scrollAndZoomIntoView(nodes);
-  }
-  else if (msg.type === 'cancel') {
+  } else if (msg.type === "cancel") {
     figma.closePlugin();
   }
 };
