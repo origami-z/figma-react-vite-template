@@ -3,8 +3,7 @@ export type CreatedNodesResultToUIMessage = {
   success: boolean;
 };
 
-export type PostToUIMessage =
-  | CreatedNodesResultToUIMessage;
+export type PostToUIMessage = CreatedNodesResultToUIMessage;
 
 export type CreateTriangleToFigmaMessage = {
   type: "create-rectangles";

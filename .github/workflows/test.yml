@@ -40,7 +40,7 @@ jobs:
           cache: "yarn"
       - name: Install dependencies
         run: yarn
-      - run: prettier:ci
+      - run: yarn prettier:ci
   build:
     runs-on: ubuntu-latest
     steps:
@@ -53,4 +53,4 @@ jobs:
           cache: "yarn"
       - name: Install dependencies
         run: yarn
-      - run: build
+      - run: yarn build
