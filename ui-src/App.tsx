@@ -37,14 +37,14 @@ function App() {
           count,
         } as PostToFigmaMessage,
       },
-      "*"
+      "*",
     );
   };
 
   const onCancel = () => {
     parent.postMessage(
       { pluginMessage: { type: "cancel" } as PostToFigmaMessage },
-      "*"
+      "*",
     );
   };
 
