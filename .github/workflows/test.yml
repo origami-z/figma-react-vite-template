@@ -10,6 +10,7 @@ jobs:
           node-version: "24"
           cache: true
       - run: vp install
+      - run: npm run format:ci
       - run: vp run format:ci
       - run: vp run tsc
       - run: vp test
