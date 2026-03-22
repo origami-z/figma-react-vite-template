@@ -3,3 +3,12 @@ dist
 
 # Mac OS
 .DS_Store
+
+# yarn zero-install
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
